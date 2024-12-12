@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+
+import { UsersService } from '../services/users.service';
+import { User } from '../models/User.model';
 
 @Component({
   selector: 'users',
@@ -9,8 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
+  usersService = inject(UsersService);
+
+  users!: any;
+
   ngOnInit(): void {
-    // it was intentional
+    this.onGetAllActiveUsers();
   }
+
+  onGetAllActiveUsers = () => {
+    this.usersService.getUsers().subscribe(
+      users => this.users = users
+    );
+  };
 
 }
