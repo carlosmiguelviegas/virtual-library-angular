@@ -1,1 +1,10 @@
-<p>Login</p>
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+  <section class="title-container">
+    <h2>{{ TITLE }}</h2>
+  </section>
+  <section class="content-container">
+    <input-field type="text" label="Email" [control]="formControls['email']"></input-field>
+    <input-field type="password" label="Password" [control]="formControls['password']"></input-field>
+    <reusable-button type="submit" [label]="LABEL"></reusable-button>
+  </section>
+</form>

@@ -2,16 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { FIELD_INVALID_LENGTH, FIELD_REQUIRED, INVALID_EMAIL_ADDRESS } from '../../utils/messages';
+import { FIELD_INVALID_MAX_LENGTH, FIELD_INVALID_MIN_LENGTH, FIELD_REQUIRED, INVALID_EMAIL_ADDRESS } from '../../utils/messages';
 
 @Component({
-  selector: 'text-input',
+  selector: 'input-field',
   standalone: true,
   imports: [ CommonModule, ReactiveFormsModule ],
-  templateUrl: './text-input.component.html',
-  styleUrl: './text-input.component.css'
+  templateUrl: './input-field.component.html',
+  styleUrl: './input-field.component.css'
 })
-export class TextInputComponent {
+export class InputFieldComponent {
 
   @Input() control!: FormControl;
   @Input() label!: string;
@@ -22,8 +22,10 @@ export class TextInputComponent {
       return FIELD_REQUIRED;
     } else if (this.control.hasError('email')) {
       return INVALID_EMAIL_ADDRESS;
+    } else if (this.control.hasError('maxlength')) {
+      return FIELD_INVALID_MAX_LENGTH(50);
     } else {
-      return FIELD_INVALID_LENGTH(3);
+      return FIELD_INVALID_MIN_LENGTH(3);
     }
   };
   

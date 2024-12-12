@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { UsersService } from '../services/users.service';
-import { User } from '../models/User.model';
 
 @Component({
   selector: 'users',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
