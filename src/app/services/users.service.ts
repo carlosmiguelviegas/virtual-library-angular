@@ -9,10 +9,10 @@ import { catchError, Observable } from 'rxjs';
 })
 export class UsersService {
 
-  private BASE_URL = 'http://localhost:8000/';
-  private GET_USERS_URL = `${this.BASE_URL}` + 'api/users';
+  private BASE_URL = 'http://localhost:8000/api/v1/';
+  private GET_USERS_URL = `${this.BASE_URL}` + 'users';
   
-  constructor(public http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getUsers = () => {
     return this.http.get<Observable<User[]>>(this.GET_USERS_URL).pipe(

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { LoginRequest } from '../models/LoginRequest.model';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private BASE_URL = 'http://localhost:8080/';
-  private LOGIN_URL = `${this.BASE_URL}` + 'api/auth/signin';
+  private BASE_URL = 'http://localhost:8000/api/v1/users/';
+  private LOGIN_URL = `${this.BASE_URL}` + 'login';
 
   private loggedInUserSubject: BehaviorSubject<string>;
 
@@ -21,9 +21,7 @@ export class AuthService {
   loggedInUserValue = () => this.loggedInUserSubject.asObservable();
 
   login = (login: LoginRequest) => {
-    return this.http.post(`${this.LOGIN_URL}`, login).pipe(
-      map((user) => this.loggedInUserSubject.next(JSON.stringify(user)))
-    );
+    return this.http.post(`${this.LOGIN_URL}`, login, { observe: 'response' });
   }
 
 }
