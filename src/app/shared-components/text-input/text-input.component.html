@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form-control">
+    <label class="label">{{ label }}</label>
+    <input class="input" [type]="type" [formControl]="control" [ngClass]="{ 'error': control.invalid && control.touched }" />
+  </div>
+  @if (control.invalid && control.touched) {
+    <div class="error-class">
+      {{ getValidationErrors() }}
+    </div>
+  }
+</div>
