@@ -15,8 +15,6 @@ export class ReusableButtonComponent {
   @Input() color: string = '#03A9F4';
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
-  onButtonClick = (_event: any) => {
-    this.onClick.emit();
-  };
+  onButtonClick = (_event: any) => this.onClick.emit();
 
 }

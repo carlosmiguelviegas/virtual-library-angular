@@ -3,8 +3,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
-import { InputFieldComponent } from '../shared-components/text-input/input-field.component';
-import { ReusableButtonComponent } from '../shared-components/reusable-button/reusable-button.component';
+import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
+import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
 import { SIGN_IN_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
 
 @Component({

@@ -1,0 +1,18 @@
+.button {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -9px;
+  right: -3px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+   
+.icon {
+  font-size: 22px;
+  color: #df1405;
+}
