@@ -1,0 +1,10 @@
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 1em;
+  width: fit-content;
+  position: relative;
+  top: 10vh;
+  left: 25vw;
+}

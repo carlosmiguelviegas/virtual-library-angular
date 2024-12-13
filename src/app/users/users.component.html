@@ -1,1 +1,13 @@
-<p>Users</p>
+<section>
+  <h1 class="title">{{ title }}</h1>
+  <hr class="divider">
+  @if (users?.length) {
+    <section class="users-container">
+      @for (user of users; track user) {
+        <user-card [user]="user" (emitUserId)="onDisableUser($event)"></user-card>
+      }
+    </section>
+  } @else {
+    <p class="message">{{ emptyListMessage }}</p>
+  }
+</section>

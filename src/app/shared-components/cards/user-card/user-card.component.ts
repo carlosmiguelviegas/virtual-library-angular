@@ -4,11 +4,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../../models/User.model';
 import { USER_CARD_ADMIN_ROLE, USER_CARD_INFORMATION, USER_CARD_NAME, USER_CARD_ROLE, USER_CARD_USER_ROLE } from '../../../utils/titles-and-labels';
 import { ButtonCardComponent } from '../../buttons/button-card/button-card.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'user-card',
   standalone: true,
-  imports: [ CommonModule, ButtonCardComponent ],
+  imports: [ CommonModule, ButtonCardComponent, MatIconModule, MatIcon ],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.css'
 })

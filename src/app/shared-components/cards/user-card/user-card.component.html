@@ -1,10 +1,10 @@
 <section class="userCard">
   <section class="cardHeader">
-    <img class="avatar" src="./../../../../public/female_user.png" alt='user' />
+    <img class="avatar" src="female_user.png" alt='user' />
   </section>
   <section class="cardContent">
     <p class="infoLabel">{{ info }}</p>
-    <button-card icon="Person Off" (onClick)="selectUser()"></button-card>
+    <button-card icon="person_off" (onClick)="selectUser()"></button-card>
     <section class="name">
       <label class="label">{{ name }}</label>
       <p class="property">{{ user['name'] }}</p>
@@ -14,7 +14,7 @@
       <p class="property">{{ user['role'] === 'admin' ? adminRole : userRole }}</p>
     </section>
     <section class="email">
-      <MdOutlineMailOutline class="icon" />
+      <mat-icon class="icon" fontIcon="mail"></mat-icon>
       <p class="property">{{ user['email'] }}</p>
     </section>
   </section>
