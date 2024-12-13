@@ -1,0 +1,21 @@
+<section class="userCard">
+  <section class="cardHeader">
+    <img class="avatar" src="./../../../../public/female_user.png" alt='user' />
+  </section>
+  <section class="cardContent">
+    <p class="infoLabel">{{ info }}</p>
+    <ButtonCard handlerOnClick={handlerOnClick} />
+    <section class="name">
+      <label class="label">{{ name }}</label>
+      <p class="property">{{ user['name'] }}</p>
+    </section>
+    <section class="role">
+      <label class="label">{{ role }}</label>
+      <p class="property">{{ user['role'] === 'admin' ? adminRole : userRole }}</p>
+    </section>
+    <section class="email">
+      <MdOutlineMailOutline class="icon" />
+      <p class="property">{{ user['email'] }}</p>
+    </section>
+  </section>
+</section>
