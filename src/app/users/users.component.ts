@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersService } from '../services/users.service';
 import { UserCardComponent } from '../shared-components/cards/user-card/user-card.component';
 import { USERS_PAGE_EMPTY_LIST_MESSAGE, USERS_PAGE_TITLE } from '../utils/titles-and-labels';
+import { User } from '../models/User.model';
 
 @Component({
   selector: 'users',
@@ -31,7 +32,9 @@ export class UsersComponent implements OnInit {
   };
 
   onDisableUser = (userId: string) => {
-    console.log(userId);
+    this.usersService.disableUser(userId).subscribe(
+      () => this.users = this.users.filter((user: User) => user['_id'] !== userId)
+    );
   };
 
 }

@@ -21,7 +21,7 @@ export class UsersService {
     );
   };
 
-  disableUser = (userId: number) => {
+  disableUser = (userId: string) => {
     return this.http.patch<Observable<any>>(`${this.DISABLE_USER_URL}${userId}`, null);
   };
 
