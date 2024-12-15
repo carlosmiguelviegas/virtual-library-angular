@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { UsersService } from '../services/users.service';
 import { UserCardComponent } from '../shared-components/cards/user-card/user-card.component';
-import { USERS_PAGE_EMPTY_LIST_MESSAGE, USERS_PAGE_TITLE } from '../utils/titles-and-labels';
+import { SUCCESS_MESSAGE_TITLE, USERS_PAGE_EMPTY_LIST_MESSAGE, USERS_PAGE_TITLE } from '../utils/titles-and-labels';
 import { User } from '../models/User.model';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'users',
@@ -16,6 +17,7 @@ import { User } from '../models/User.model';
 export class UsersComponent implements OnInit {
 
   usersService = inject(UsersService);
+  notificationService = inject(NotificationService);
 
   users!: any;
   title = USERS_PAGE_TITLE;
@@ -33,7 +35,10 @@ export class UsersComponent implements OnInit {
 
   onDisableUser = (userId: string) => {
     this.usersService.disableUser(userId).subscribe(
-      () => this.users = this.users.filter((user: User) => user['_id'] !== userId)
+      (res: any) => {
+        this.users = this.users.filter((user: User) => user['_id'] !== userId);
+        this.notificationService.setMessage(SUCCESS_MESSAGE_TITLE, res['message']);
+      }
     );
   };
 

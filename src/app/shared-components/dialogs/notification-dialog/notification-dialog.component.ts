@@ -14,7 +14,7 @@ import { ReusableButtonComponent } from './../../buttons/reusable-button/reusabl
 })
 export class NotificationDialogComponent {
 
-  constructor(private dialogRef: MatDialogRef<NotificationDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: Notification) {}
+  constructor(private dialogRef: MatDialogRef<NotificationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Notification) {}
 
   onClose = () => this.dialogRef.close('ok')
 
