@@ -10,9 +10,9 @@ export class NotificationService {
 
  dialog = inject(MatDialog);
 
-  setMessage = (title: string, message: string) => {
+  setMessage = (title: string, message: string, displayOneButon: boolean = true) => {
     this.dialog.open(NotificationDialogComponent, {
-      data: { title, message, displayOneButon: true  }
+      data: { title, message, displayOneButon  }
     });
   }
 
