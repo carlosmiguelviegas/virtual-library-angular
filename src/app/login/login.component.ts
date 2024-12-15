@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
-import { SIGN_IN_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
+import { ERROR_MESSAGE_TITLE, SIGN_IN_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   readonly TITLE: string = SIGN_IN_TITLE;
   readonly LABEL: string = SIGN_IN_LABEL;
 
-  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService) {}
+  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private notificationService: NotificationService) {}
   
   ngOnInit(): void {
     this.initLoginForm();
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res['headers'].get('token'));
         this.router.navigateByUrl("/home");
       },
-      err => console.error(err['error']['message'])
+      err => this.notificationService.setMessage(ERROR_MESSAGE_TITLE, err['error']['errors'][0]['message'])
     );
   }
 

@@ -7,6 +7,8 @@ const USER_CARD_ADMIN_ROLE = 'Administrator';
 const USER_CARD_USER_ROLE = 'User';
 const USERS_PAGE_TITLE = 'Library Users';
 const USERS_PAGE_EMPTY_LIST_MESSAGE = 'It has not been found any user';
+const SUCCESS_MESSAGE_TITLE = 'Success';
+const ERROR_MESSAGE_TITLE = 'Alert';
 
 export {  
           SIGN_IN_TITLE,
@@ -17,5 +19,7 @@ export {
           USER_CARD_ADMIN_ROLE,
           USER_CARD_USER_ROLE,
           USERS_PAGE_TITLE,
-          USERS_PAGE_EMPTY_LIST_MESSAGE
+          USERS_PAGE_EMPTY_LIST_MESSAGE,
+          SUCCESS_MESSAGE_TITLE,
+          ERROR_MESSAGE_TITLE
        };
