@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="form-control">
+    <label class="label">{{ label }}</label>
+    <select class="select" [formControl]="control" [ngClass]="{ 'error': control.invalid && control.touched }">
+      @for (option of list; track option) {
+        <option [value]="option['code']">{{ option['label'] }}</option>
+      }
+    </select>
+  </div>
+  @if (control.invalid && control.touched) {
+    <div class="error-class">
+      {{ getValidationErrors() }}
+    </div>
+  }
+</div>
