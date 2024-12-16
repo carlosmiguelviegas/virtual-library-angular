@@ -1,0 +1,30 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.label {
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #0904d5;
+}
+
+.select {
+  width: 180px;
+  line-height: 22px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.error {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 1px solid #ff0000;
+}
+
+.error-class {
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #ff0000;
+}
