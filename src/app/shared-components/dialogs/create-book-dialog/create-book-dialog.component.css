@@ -1,18 +1,27 @@
 .modal-container {
-  width: 400px;
-  height: 200px;
-  padding: 1px 40px;
+  width: 520px;
+  height: 280px;
   background-color: rgb(255, 255, 255);
+  padding: 1px 40px;
 }
 
 .buttons-section {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 20px;
   position: relative;
-  top: 10px;
+  top: 30px;
 }
 
 .title {
   color: #2196f3;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+

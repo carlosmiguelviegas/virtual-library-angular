@@ -1,0 +1,21 @@
+.title {
+  font-family: sans-serif;
+  font-size: 54px;
+  color: #0505db;
+  padding-left: 10px;
+}
+
+.divider {
+  width: 35%;
+  color: #0505db;
+  position: absolute;
+  top: 94px;
+  left: 17px;
+  border: 1px solid;
+}
+
+.button {
+  position: relative;
+  top: -20px;
+  left: 44vw;
+}
