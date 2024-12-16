@@ -11,8 +11,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ReusableButtonComponent {
 
   @Input() label!: string;
-  @Input() type: string = 'button';
-  @Input() color: string = '#03A9F4';
+  @Input() type = 'button';
+  @Input() color = '#0904d5';
+  @Input() backgroundColor = '#03A9F4';
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   onButtonClick = (_event: any) => this.onClick.emit();

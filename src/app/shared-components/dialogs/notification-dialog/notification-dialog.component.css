@@ -1,6 +1,8 @@
 .modal-container {
+  width: 400px;
   height: 200px;
   padding: 1px 40px;
+  background-color: rgb(255, 255, 255);
 }
 
 .buttons-section {

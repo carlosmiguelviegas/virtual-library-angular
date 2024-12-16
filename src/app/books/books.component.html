@@ -1,5 +1,7 @@
 <section>
   <h1 class="title">{{ TITLE }}</h1>
   <hr class="divider">
-  <reusable-button class="button" [label]="LABEL_CREATE_BOOK" (onClick)="onOpenAddBookDialog($event)"></reusable-button>
+  @if (!hideCreateButton) {
+    <reusable-button class="button" [label]="LABEL_CREATE_BOOK" (onClick)="onOpenAddBookDialog($event)"></reusable-button>
+  }
 </section>
