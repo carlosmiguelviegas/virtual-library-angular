@@ -15,4 +15,6 @@
 .icon {
   font-size: 22px;
   color: #df1405;
+  position: absolute;
+  right: -1px;
 }
