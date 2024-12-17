@@ -5,6 +5,7 @@ import { User } from '../../../models/User.model';
 import { USER_CARD_ADMIN_ROLE, USER_CARD_INFORMATION, USER_CARD_NAME, USER_CARD_ROLE, USER_CARD_USER_ROLE } from '../../../utils/titles-and-labels';
 import { ButtonCardComponent } from '../../buttons/button-card/button-card.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { DISABLE_USER_TOOLTIP } from '../../../utils/messages';
 
 @Component({
   selector: 'user-card',
@@ -22,6 +23,7 @@ export class UserCardComponent {
   role = USER_CARD_ROLE;
   adminRole = USER_CARD_ADMIN_ROLE;
   userRole = USER_CARD_USER_ROLE;
+  tooltipMessage = DISABLE_USER_TOOLTIP;
 
   selectUser = () => {
     if (this.user) this.emitUserId.emit(this.user['_id']);
