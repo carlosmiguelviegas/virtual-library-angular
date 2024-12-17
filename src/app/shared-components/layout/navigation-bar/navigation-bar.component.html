@@ -1,0 +1,11 @@
+<nav class="nav-bar">
+  @if (isLoggedIn) {
+    @for (link of list; track link) {
+      <a class="ankor" [routerLink]="['/', link ]"><p class="link">{{ link }}</p></a>
+    }
+    <a class="ankor" (click)="onLogOut()"><p class="link logout">{{ logout }}</p></a>
+  } @else {
+    <a class="ankor" [routerLink]="['/', login ]"><p class="link">{{ login }}</p></a>
+    <a class="ankor" routerLink="/signup"><p class="link">{{ register }}</p></a>
+  }
+</nav>

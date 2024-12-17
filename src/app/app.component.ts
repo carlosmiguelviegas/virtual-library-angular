@@ -1,13 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { NavigationBarComponent } from './shared-components/layout/navigation-bar/navigation-bar.component';
+import { AuthService } from './services/auth.service';
+import { User } from './models/User.model';
+import { BOOKS_LINK, HOME_LINK, USERS_LINK } from './utils/titles-and-labels';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavigationBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
+  auth = inject(AuthService);
+
   title = 'virtual-library-angular';
+  isLoggedIn!: boolean;
+  list!: string[];
+
+  ngOnInit(): void {
+    this.checkLogin();
+  }
+
+  checkLogin = () => {
+    this.auth.loggedInUserValue().subscribe(
+      (currentUser: User) => {
+        this.isLoggedIn = currentUser?.role ? true : false;
+        if ('admin' === currentUser?.role) {
+          this.list = [ HOME_LINK, BOOKS_LINK, USERS_LINK ];
+        } else {
+          this.list = [ HOME_LINK, BOOKS_LINK, USERS_LINK ].slice(0, 2);
+        }
+      }
+    );
+  };
+
+  onLogOut = () => this.auth.logout();
+
 }
