@@ -1,5 +1,11 @@
 const SIGN_IN_TITLE = 'Sign in';
 const SIGN_IN_LABEL = 'Sign in';
+const SIGN_IN_LINK = 'login';
+const SIGN_UP_LINK = 'register';
+const HOME_LINK = 'home';
+const BOOKS_LINK = 'books';
+const USERS_LINK = 'users';
+const LOGOUT_LINK = 'logout';
 const USER_CARD_INFORMATION = 'INFORMATION';
 const USER_CARD_NAME = 'Name:';
 const USER_CARD_ROLE = 'Role:';
@@ -26,6 +32,12 @@ const ROMANCE_LABEL = 'Romance';
 export {  
           SIGN_IN_TITLE,
           SIGN_IN_LABEL,
+          SIGN_IN_LINK,
+          SIGN_UP_LINK,
+          HOME_LINK,
+          BOOKS_LINK,
+          USERS_LINK,
+          LOGOUT_LINK,
           USER_CARD_INFORMATION,
           USER_CARD_NAME,
           USER_CARD_ROLE,
