@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-control">
     <label class="label">{{ label }}</label>
-    <input class="input" [type]="type" [formControl]="control" [ngClass]="{ 'error': control.invalid && control.touched }" />
+    <input class="input" [type]="type" [formControl]="control" [ngClass]="{ 'error': control.invalid && control.touched }" [ngStyle]="{ 'width': width + 'px' }" />
   </div>
   @if (control.invalid && control.touched) {
     <div class="error-class">

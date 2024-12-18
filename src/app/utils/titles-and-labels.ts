@@ -1,5 +1,14 @@
 const SIGN_IN_TITLE = 'Sign in';
 const SIGN_IN_LABEL = 'Sign in';
+const SIGN_IN_EMAIL_LABEL = 'Email';
+const SIGN_IN_PASSWORD_LABEL = 'Password';
+const SIGN_UP_TITLE = 'Register';
+const SIGN_UP_EMAIL_LABEL = 'Email';
+const SIGN_UP_NAME_LABEL = 'Name';
+const SIGN_UP_PASSWORD_LABEL = 'Password';
+const SIGN_UP_CONFIRM_PASSWORD_LABEL = 'Confirm password';
+const SIGN_UP_LABEL = 'Sign up';
+const SIGN_UP_CANCEL_LABEL = 'Reset';
 const SIGN_IN_LINK = 'login';
 const SIGN_UP_LINK = 'register';
 const HOME_LINK = 'home';
@@ -32,6 +41,15 @@ const ROMANCE_LABEL = 'Romance';
 export {  
           SIGN_IN_TITLE,
           SIGN_IN_LABEL,
+          SIGN_IN_EMAIL_LABEL,
+          SIGN_IN_PASSWORD_LABEL,
+          SIGN_UP_TITLE,
+          SIGN_UP_EMAIL_LABEL,
+          SIGN_UP_NAME_LABEL,
+          SIGN_UP_PASSWORD_LABEL,
+          SIGN_UP_CONFIRM_PASSWORD_LABEL,
+          SIGN_UP_LABEL,
+          SIGN_UP_CANCEL_LABEL,
           SIGN_IN_LINK,
           SIGN_UP_LINK,
           HOME_LINK,

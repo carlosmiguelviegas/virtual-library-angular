@@ -3,8 +3,8 @@
     <h2>{{ TITLE }}</h2>
   </section>
   <section class="content-container">
-    <input-field type="text" label="Email" [control]="formControls['email']"></input-field>
-    <input-field type="password" label="Password" [control]="formControls['password']"></input-field>
-    <reusable-button type="submit" [label]="LABEL"></reusable-button>
+    <input-field type="text" [label]="EMAIL_LABEL" [control]="formControls['email']"></input-field>
+    <input-field type="password" [label]="PASSWORD_LABEL" [control]="formControls['password']"></input-field>
+    <reusable-button type="submit" [label]="BUTTON_LABEL"></reusable-button>
   </section>
 </form>
