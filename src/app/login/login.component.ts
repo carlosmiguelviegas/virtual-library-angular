@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,6 +7,7 @@ import { InputFieldComponent } from '../shared-components/inputs/text-input/inpu
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
 import { ERROR_MESSAGE_TITLE, SIGN_IN_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
 import { NotificationService } from '../services/notification.service';
+import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
 
 @Component({
   selector: 'login',
@@ -15,15 +16,17 @@ import { NotificationService } from '../services/notification.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   loginForm!: FormGroup;
+  private unsubscribeSubs!: UnsubscribeSubscriptions;
   readonly TITLE: string = SIGN_IN_TITLE;
   readonly LABEL: string = SIGN_IN_LABEL;
 
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private notificationService: NotificationService) {}
   
   ngOnInit(): void {
+    this.unsubscribeSubs = new UnsubscribeSubscriptions();
     this.initLoginForm();
   }
 
@@ -47,13 +50,17 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
       return;
     }
-    this.auth.login(this.loginForm.value).subscribe(
+    this.unsubscribeSubs.add = this.auth.login(this.loginForm.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res['headers'].get('token'));
         this.router.navigateByUrl("/home");
       },
       err => this.notificationService.setMessage(ERROR_MESSAGE_TITLE, err['error']['errors'][0]['message'])
     );
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribeSubs.unsubscribeAll();
   }
 
 }
