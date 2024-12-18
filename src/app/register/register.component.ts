@@ -51,7 +51,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onRegisterNewUser = () => {
-    // it was intentional
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+    this.unsubscribeSubs.add = this.auth.registerNewUser(this.registerForm.value).subscribe(
+      (res: any) => {
+        localStorage.setItem('token', res['headers'].get('token'));
+        this.router.navigateByUrl("/home");
+      },
+      err => this.notificationService.setMessage(ERROR_MESSAGE_TITLE, err['error']['errors'][0]['message'])
+    );
   }
 
   onReset = () => {
