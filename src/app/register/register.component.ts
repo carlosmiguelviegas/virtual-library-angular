@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onReset = () => {
-    // it was intentional
+    this.registerForm.reset();
   }
 
   ngOnDestroy(): void {
