@@ -32,6 +32,24 @@
   gap: 30px;
 }
 
+.show-password-input {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  position: relative;
+  top: -13px;
+  left: -4px;
+  margin-top: 6px;
+}
+
+.show-password-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(193, 14, 48);
+  margin: 0px;
+}
+
 .buttons-section {
   display: flex;
   flex-direction: row;
