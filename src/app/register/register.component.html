@@ -3,9 +3,15 @@
     <h2>{{ TITLE }}</h2>
   </section>
   <section class="content-container">
-    <input-field type="text" label="Email" [control]="formControls['email']"></input-field>
-    <input-field type="password" label="Password" [control]="formControls['password']"></input-field>
-    <reusable-button type="submit" [label]="LABEL"></reusable-button>
-    <reusable-button type="button" [label]="CANCEL_LABEL" (onClick)="onReset()"></reusable-button>
+    <input-field type="text" [label]="NAME" [control]="formControls['name']" [width]=260></input-field>
+    <input-field type="text" [label]="EMAIL" [control]="formControls['email']" [width]=260></input-field>
+    <section class="row">
+      <input-field type="password" [label]="PASSWORD" [control]="formControls['password']"></input-field>
+      <input-field type="password" [label]="CONFIRM_PASSWORD" [control]="formControls['passwordConfirm']"></input-field>
+    </section>
+  </section>
+  <section class="buttons-section">
+    <reusable-button type="submit" [label]="SIGN_UP_BUTTON_LABEL"></reusable-button>
+    <reusable-button [label]="CANCEL_BUTTON_LABEL" backgroundColor="rgb(255, 255, 255)" (onClick)="onReset()"></reusable-button>
   </section>
 </form>
