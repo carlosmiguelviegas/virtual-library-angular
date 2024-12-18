@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
-import { ERROR_MESSAGE_TITLE, SIGN_IN_EMAIL_LABEL, SIGN_IN_LABEL, SIGN_IN_PASSWORD_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
+import { ERROR_MESSAGE_TITLE, SIGN_IN_EMAIL_LABEL, SIGN_IN_LABEL, SIGN_IN_PASSWORD_LABEL, SIGN_IN_SHOW_PASSWORD_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
 import { NotificationService } from '../services/notification.service';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
 
@@ -23,7 +23,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   readonly TITLE = SIGN_IN_TITLE;
   readonly EMAIL_LABEL = SIGN_IN_EMAIL_LABEL;
   readonly PASSWORD_LABEL = SIGN_IN_PASSWORD_LABEL;
+  readonly SHOW_PASSWORD_LABEL = SIGN_IN_SHOW_PASSWORD_LABEL;
   readonly BUTTON_LABEL = SIGN_IN_LABEL;
+  showPassword = false;
+  type = 'password';
 
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private notificationService: NotificationService) {}
   
@@ -60,6 +63,13 @@ export class LoginComponent implements OnInit, OnDestroy {
       err => this.notificationService.setMessage(ERROR_MESSAGE_TITLE, err['error']['errors'][0]['message'])
     );
   }
+
+  onDisplayPassword = () => this.showPassword ? 'text' : 'password';
+
+  onChangeDisplayPassword = () => {
+    this.showPassword = !this.showPassword;
+    this.type = this.onDisplayPassword();
+  };
 
   ngOnDestroy(): void {
     this.unsubscribeSubs.unsubscribeAll();

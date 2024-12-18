@@ -6,8 +6,12 @@
     <input-field type="text" [label]="NAME" [control]="formControls['name']" [width]=260></input-field>
     <input-field type="text" [label]="EMAIL" [control]="formControls['email']" [width]=260></input-field>
     <section class="row">
-      <input-field type="password" [label]="PASSWORD" [control]="formControls['password']"></input-field>
-      <input-field type="password" [label]="CONFIRM_PASSWORD" [control]="formControls['passwordConfirm']"></input-field>
+      <input-field [type]="type" [label]="PASSWORD" [control]="formControls['password']"></input-field>
+      <input-field [type]="type" [label]="CONFIRM_PASSWORD" [control]="formControls['passwordConfirm']"></input-field>
+    </section>
+    <section class="show-password-input">
+      <input type="checkbox" (change)="onChangeDisplayPassword()" />
+      <p class="show-password-label">{{ SHOW_PASSWORD_LABEL }}</p>
     </section>
   </section>
   <section class="buttons-section">
