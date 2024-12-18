@@ -3,11 +3,11 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from '../services/notification.service';
 import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
-import { ERROR_MESSAGE_TITLE, SIGN_UP_CANCEL_LABEL, SIGN_UP_LABEL, SIGN_UP_TITLE } from '../utils/titles-and-labels';
-import { NotificationService } from '../services/notification.service';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
+import { ERROR_MESSAGE_TITLE, SIGN_UP_CANCEL_LABEL, SIGN_UP_LABEL, SIGN_UP_TITLE } from '../utils/titles-and-labels';
 
 @Component({
   selector: 'register',
@@ -50,7 +50,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
            };
   }
 
-  onLogIn = () => {
+  onRegisterNewUser = () => {
+    // it was intentional
+  }
+
+  onReset = () => {
     // it was intentional
   }
 
