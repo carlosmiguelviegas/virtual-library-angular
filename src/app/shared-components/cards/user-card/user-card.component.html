@@ -4,7 +4,7 @@
   </section>
   <section class="cardContent">
     <p class="infoLabel">{{ info }}</p>
-    <button-card icon="person_off" tooltip="tooltipMessage" (onClick)="selectUser()"></button-card>
+    <button-card icon="person_off" [tooltip]="tooltipMessage" (onClick)="selectUser()"></button-card>
     <section class="name">
       <label class="label">{{ name }}</label>
       <p class="property">{{ user['name'] }}</p>
