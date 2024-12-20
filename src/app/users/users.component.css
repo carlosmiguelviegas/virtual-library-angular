@@ -8,3 +8,19 @@
   top: 10vh;
   left: 25vw;
 }
+
+.title {
+  font-family: sans-serif;
+  color: brown;
+  font-size: 28px;
+  padding-left: 10px;
+}
+
+.divider {
+  width: 12%;
+  color: brown;
+  position: absolute;
+  top: 82px;
+  left: 12px;
+  border: 1px solid;
+}

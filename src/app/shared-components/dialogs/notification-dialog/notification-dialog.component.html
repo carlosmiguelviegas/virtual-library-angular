@@ -1,14 +1,14 @@
 <mat-card class="modal-container">
   <h2 class="title">{{ data.title }}</h2>
   <section>
-    <p>{{ data.message }}</p>
+    <p class="message">{{ data.message }}</p>
   </section>
   <section class="buttons-section">
     @if (data.displayOneButon) {
-      <reusable-button label="OK" (onClick)="onClose()"></reusable-button>
+      <reusable-button [label]="OK_LABEL" (onClick)="onClose()"></reusable-button>
     } @else {
-      <reusable-button label="Yes" (onClick)="onConfirm()"></reusable-button>
-      <reusable-button label = "No" color="rgba(255, 0, 0, 0.7)" (onClick)="onClose()"></reusable-button>
+      <reusable-button [label]="YES_LABEL" (onClick)="onConfirm()"></reusable-button>
+      <reusable-button [label]="NO_LABEL" func="secondary" (onClick)="onClose()"></reusable-button>
     }
   </section>
 </mat-card>
