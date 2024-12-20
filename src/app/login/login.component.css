@@ -5,12 +5,13 @@
   position: absolute;
   top: 30vh;
   left: 35vw;
+  background-color: blanchedalmond;
   box-shadow: 0 8px 10px rgba(128, 128, 128, 0.5);
 }
 
 .title-container {
   font-family: sans-serif;
-  color: #0505db;
+  color: brown;
   display: flex;
   justify-content: center;
   padding: 10px 0px;
@@ -40,7 +41,7 @@
 .show-password-label {
   font-size: 14px;
   font-weight: 500;
-  color: rgb(193, 14, 48);
+  color: brown;
   margin: 0px;
 }
 

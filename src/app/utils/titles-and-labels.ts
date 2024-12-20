@@ -13,10 +13,14 @@ const SIGN_UP_LABEL = 'Sign up';
 const SIGN_UP_CANCEL_LABEL = 'Reset';
 const SIGN_IN_LINK = 'login';
 const SIGN_UP_LINK = 'register';
+const NOTIFICATIONS_OK_LABEL = 'OK';
+const NOTIFICATIONS_YES_LABEL = 'Yes';
+const NOTIFICATIONS_NO_LABEL = 'No';
 const HOME_LINK = 'home';
 const BOOKS_LINK = 'books';
 const USERS_LINK = 'users';
 const LOGOUT_LINK = 'logout';
+const HOME_PAGE_WELCOME = 'Welcome';
 const USER_CARD_INFORMATION = 'INFORMATION';
 const USER_CARD_NAME = 'Name:';
 const USER_CARD_ROLE = 'Role:';
@@ -56,10 +60,14 @@ export {
           SIGN_UP_CANCEL_LABEL,
           SIGN_IN_LINK,
           SIGN_UP_LINK,
+          NOTIFICATIONS_OK_LABEL,
+          NOTIFICATIONS_YES_LABEL,
+          NOTIFICATIONS_NO_LABEL,
           HOME_LINK,
           BOOKS_LINK,
           USERS_LINK,
           LOGOUT_LINK,
+          HOME_PAGE_WELCOME,
           USER_CARD_INFORMATION,
           USER_CARD_NAME,
           USER_CARD_ROLE,

@@ -16,7 +16,7 @@ export class InputFieldComponent {
   @Input() control!: FormControl;
   @Input() label!: string;
   @Input() type: string = 'text';
-  @Input() width = 169;
+  @Input() width = 189;
 
   getValidationErrors = () => {
     if (this.control.hasError("required")) {

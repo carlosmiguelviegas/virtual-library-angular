@@ -1,7 +1,7 @@
 .modal-container {
   width: 520px;
   height: 280px;
-  background-color: rgb(255, 255, 255);
+  background-color: blanchedalmond;
   padding: 1px 40px;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .title {
-  color: #2196f3;
+  color: brown;
 }
 
 .row {
