@@ -3,7 +3,7 @@
     <label class="label">{{ label }}</label>
     <select class="select" [formControl]="control" [ngClass]="{ 'error': control.invalid && control.touched }">
       @for (option of list; track option) {
-        <option [value]="option['code']">{{ option['label'] }}</option>
+        <option style="background-color: blanchedalmond" [value]="option['code']">{{ option['label'] }}</option>
       }
     </select>
   </div>
