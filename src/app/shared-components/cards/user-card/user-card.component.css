@@ -32,9 +32,10 @@
   font-family: sans-serif;
   width: 70%;
   color: brown;
+  text-transform: uppercase;
+  font-weight: 600;
   border-bottom: 1px solid;
   margin: 0px;
-  font-weight: 600;
   position: relative;
   top: -7px;
 }
