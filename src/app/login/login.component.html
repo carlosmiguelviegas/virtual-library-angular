@@ -5,10 +5,7 @@
   <section class="content-container">
     <input-field type="text" [label]="EMAIL_LABEL" [control]="formControls['email']"></input-field>
     <input-field [type]="type" [label]="PASSWORD_LABEL" [control]="formControls['password']"></input-field>
-    <section class="show-password-input">
-      <input type="checkbox" (change)="onChangeDisplayPassword()" />
-      <p class="show-password-label">{{ SHOW_PASSWORD_LABEL }}</p>
-    </section>
+    <display-and-hide-password (onChange)="togglePassword($event)"></display-and-hide-password>
   </section>
   <section class="buttons-section">
     <reusable-button type="submit" [label]="BUTTON_LABEL"></reusable-button>

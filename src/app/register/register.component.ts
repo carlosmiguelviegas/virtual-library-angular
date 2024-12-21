@@ -7,12 +7,13 @@ import { NotificationService } from '../services/notification.service';
 import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
-import { ERROR_MESSAGE_TITLE, SIGN_UP_CANCEL_LABEL, SIGN_UP_CONFIRM_PASSWORD_LABEL, SIGN_UP_EMAIL_LABEL, SIGN_UP_LABEL, SIGN_UP_NAME_LABEL, SIGN_UP_PASSWORD_LABEL, SIGN_UP_SHOW_PASSWORD_LABEL, SIGN_UP_TITLE } from '../utils/titles-and-labels';
+import { ERROR_MESSAGE_TITLE, SIGN_UP_CANCEL_LABEL, SIGN_UP_CONFIRM_PASSWORD_LABEL, SIGN_UP_EMAIL_LABEL, SIGN_UP_LABEL, SIGN_UP_NAME_LABEL, SIGN_UP_PASSWORD_LABEL, SIGN_UP_TITLE } from '../utils/titles-and-labels';
+import { DisplayAndHidePasswordComponent } from '../shared-components/inputs/display-and-hide-password/display-and-hide-password.component';
 
 @Component({
   selector: 'register',
   standalone: true,
-  imports: [ ReactiveFormsModule, InputFieldComponent, ReusableButtonComponent ],
+  imports: [ ReactiveFormsModule, InputFieldComponent, ReusableButtonComponent, DisplayAndHidePasswordComponent ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -25,10 +26,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   readonly NAME = SIGN_UP_NAME_LABEL;
   readonly PASSWORD = SIGN_UP_PASSWORD_LABEL;
   readonly CONFIRM_PASSWORD = SIGN_UP_CONFIRM_PASSWORD_LABEL;
-  readonly SHOW_PASSWORD_LABEL = SIGN_UP_SHOW_PASSWORD_LABEL;
   readonly SIGN_UP_BUTTON_LABEL = SIGN_UP_LABEL;
   readonly CANCEL_BUTTON_LABEL = SIGN_UP_CANCEL_LABEL;
-  showPassword = false;
   type = 'password';
 
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private notificationService: NotificationService) {}
@@ -75,12 +74,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.registerForm.reset();
   }
 
-  onDisplayPassword = () => this.showPassword ? 'text' : 'password';
-
-  onChangeDisplayPassword = () => {
-    this.showPassword = !this.showPassword;
-    this.type = this.onDisplayPassword();
-  };
+  togglePassword = (event: string) => this.type = event;
 
   ngOnDestroy(): void {
     this.unsubscribeSubs.unsubscribeAll();
