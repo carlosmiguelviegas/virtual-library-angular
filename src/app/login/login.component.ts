@@ -63,10 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
-  togglePassword = (event: any) => {
-    console.log(event);
-    /* this.type = this.showPassword ? 'text' : 'password'; */
-  };
+  togglePassword = (event: string) => this.type = event;
 
   ngOnDestroy(): void {
     this.unsubscribeSubs.unsubscribeAll();
