@@ -5,14 +5,15 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InputFieldComponent } from '../shared-components/inputs/text-input/input-field.component';
 import { ReusableButtonComponent } from './../shared-components/buttons/reusable-button/reusable-button.component';
-import { ERROR_MESSAGE_TITLE, SIGN_IN_EMAIL_LABEL, SIGN_IN_LABEL, SIGN_IN_PASSWORD_LABEL, SIGN_IN_SHOW_PASSWORD_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
+import { ERROR_MESSAGE_TITLE, SIGN_IN_EMAIL_LABEL, SIGN_IN_LABEL, SIGN_IN_PASSWORD_LABEL, SIGN_IN_TITLE } from '../utils/titles-and-labels';
 import { NotificationService } from '../services/notification.service';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
+import { DisplayAndHidePasswordComponent } from '../shared-components/inputs/display-and-hide-password/display-and-hide-password.component';
 
 @Component({
   selector: 'login',
   standalone: true,
-  imports: [ ReactiveFormsModule, InputFieldComponent, ReusableButtonComponent ],
+  imports: [ ReactiveFormsModule, InputFieldComponent, ReusableButtonComponent, DisplayAndHidePasswordComponent ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -23,9 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   readonly TITLE = SIGN_IN_TITLE;
   readonly EMAIL_LABEL = SIGN_IN_EMAIL_LABEL;
   readonly PASSWORD_LABEL = SIGN_IN_PASSWORD_LABEL;
-  readonly SHOW_PASSWORD_LABEL = SIGN_IN_SHOW_PASSWORD_LABEL;
   readonly BUTTON_LABEL = SIGN_IN_LABEL;
-  showPassword = false;
   type = 'password';
 
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private notificationService: NotificationService) {}
@@ -64,11 +63,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
-  onDisplayPassword = () => this.showPassword ? 'text' : 'password';
-
-  onChangeDisplayPassword = () => {
-    this.showPassword = !this.showPassword;
-    this.type = this.onDisplayPassword();
+  togglePassword = (event: any) => {
+    console.log(event);
+    /* this.type = this.showPassword ? 'text' : 'password'; */
   };
 
   ngOnDestroy(): void {
