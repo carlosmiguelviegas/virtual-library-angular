@@ -1,11 +1,13 @@
-<section class="dfd">
-  <label>{{ ITEMS_PAGE_LABEL }}</label>
-  <select (change)="changePageSize($event)">
+<section class="container">
+  <label class="items-page">{{ ITEMS_PAGE_LABEL }}</label>
+  <select class="select" (change)="changePageSize($event)">
     <option style="background-color: blanchedalmond" [value]="4">4</option>
     <option style="background-color: blanchedalmond" [value]="8">8</option>
     <option style="background-color: blanchedalmond" [value]="12">12</option>
   </select>
-  <label>{{ PAGE_NUMBER_LABEL }}</label>
-  <mat-icon fontIcon="chevron_left" (click)="previousPage()"></mat-icon>
-  <mat-icon fontIcon="chevron_right" (click)="nextPage()"></mat-icon>
+  <label class="page-number">{{ PAGE_NUMBER_LABEL }}</label>
+  <section class="buttons-section">
+    <mat-icon class="icon" [matTooltip]="previousPageTooltip" fontIcon="chevron_left" (click)="previousPage()"></mat-icon>
+    <mat-icon class="icon" [matTooltip]="nextPageTooltip" fontIcon="chevron_right" (click)="nextPage()"></mat-icon>
+  </section>
 </section>

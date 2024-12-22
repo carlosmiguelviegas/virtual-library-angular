@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   onGetAllActiveUsers = (event: any) => {
-    const { pageIndex, pageSize } = event; console.log(pageIndex, pageSize);
+    const { pageIndex, pageSize } = event;
     this.unsubscribeSubs.add = this.usersService.getUsers(pageIndex, pageSize).subscribe(
       (users: any) => {
         this.users = users['usersList'];

@@ -1,1 +1,37 @@
-/* it was intentional */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-right: 2px;
+}
+
+.items-page, .page-number {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: brown;
+  position: relative;
+  top: 3px;
+}
+
+.select {
+  color: brown;
+  background-color: blanchedalmond;
+  border-color: brown;
+  cursor: pointer;
+}
+
+.buttons-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.icon {
+  font-size: 22px;
+  color: brown;
+  position: relative;
+  right: 7px;
+  cursor: pointer;
+}

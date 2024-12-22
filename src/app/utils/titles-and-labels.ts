@@ -43,8 +43,10 @@ const SCIENCES_LABEL = 'Sciences';
 const MYSTERY_LABEL = 'Mystery';
 const CRIME_LABEL = 'Crime';
 const ROMANCE_LABEL = 'Romance';
-const PAGINATOR_ITEMS_PAGE = 'Items per page';
+const PAGINATOR_ITEMS_PAGE = 'Items per page:';
 const PAGINATOR_PAGE_NUMBER = (min: number, total: number) => `Page ${min} of ${total}`;
+const PAGINATOR_NEXT_PAGE = 'Next page';
+const PAGINATOR_PREVIOUS_PAGE = 'Previous page';
 
 export {  
           SIGN_IN_TITLE,
@@ -93,5 +95,7 @@ export {
           CRIME_LABEL,
           ROMANCE_LABEL,
           PAGINATOR_ITEMS_PAGE,
-          PAGINATOR_PAGE_NUMBER
+          PAGINATOR_PAGE_NUMBER,
+          PAGINATOR_NEXT_PAGE,
+          PAGINATOR_PREVIOUS_PAGE
        };

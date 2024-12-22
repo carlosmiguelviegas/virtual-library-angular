@@ -1,13 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { PageEvent } from './page-event.model';
-import { MatIcon } from '@angular/material/icon';
-import { PAGINATOR_ITEMS_PAGE, PAGINATOR_PAGE_NUMBER } from '../../../utils/titles-and-labels';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { PAGINATOR_ITEMS_PAGE, PAGINATOR_NEXT_PAGE, PAGINATOR_PAGE_NUMBER, PAGINATOR_PREVIOUS_PAGE } from '../../../utils/titles-and-labels';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'paginator',
   standalone: true,
-  imports: [ MatIcon ],
+  imports: [ MatIconModule, MatIcon, MatTooltipModule ],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
@@ -20,6 +21,8 @@ export class PaginatorComponent implements OnInit {
   currentPageSize = 4;
   ITEMS_PAGE_LABEL = PAGINATOR_ITEMS_PAGE;
   PAGE_NUMBER_LABEL!: string;
+  nextPageTooltip = PAGINATOR_NEXT_PAGE;
+  previousPageTooltip = PAGINATOR_PREVIOUS_PAGE;
 
   ngOnInit(): void {
     this.event = new PageEvent(this.currentPageIndex, this.currentPageSize);
