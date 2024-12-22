@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'navigation-bar',
+  selector: 'pagination',
   standalone: true,
   imports: [],
-  templateUrl: './navigation-bar.component.html',
-  styleUrl: './navigation-bar.component.css'
+  templateUrl: './pagination.component.html',
+  styleUrl: './pagination.component.css'
 })
-export class NavigationBarComponent implements OnInit {
+export class PaginationComponent implements OnInit {
 
   ngOnInit(): void {
     // it was intentional
