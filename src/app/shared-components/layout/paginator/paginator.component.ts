@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { PageEvent } from './page-event.model';
 
@@ -11,10 +11,25 @@ import { PageEvent } from './page-event.model';
 })
 export class PaginatorComponent implements OnInit {
 
+  @Input() totalElements!: number;
   @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
+  event!: PageEvent;
+  currentPageIndex = 0;
+  currentPageSize = 5;
 
   ngOnInit(): void {
-    // it was intentional
+    this.event = new PageEvent(this.currentPageIndex, this.currentPageSize);
   }
+
+  nextPage = () => {
+    this.event = { ...this.event,
+                    pageIndex: this.event['pageIndex'] + 1
+                 };
+    this.pageEvent.emit(this.event);
+  };
+
+  previousPage = () => {
+    // it was intentional
+  };
 
 }

@@ -1,7 +1,5 @@
 export class PageEvent {
- 
-  pageIndex!: number;
-  pageSize!: number;
-  totalElements!: number;
+
+  constructor(public pageIndex: number, public pageSize: number) {}
 
 }
