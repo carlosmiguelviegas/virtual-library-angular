@@ -43,6 +43,8 @@ const SCIENCES_LABEL = 'Sciences';
 const MYSTERY_LABEL = 'Mystery';
 const CRIME_LABEL = 'Crime';
 const ROMANCE_LABEL = 'Romance';
+const PAGINATOR_ITEMS_PAGE = 'Items per page';
+const PAGINATOR_PAGE_NUMBER = (min: number, total: number) => `Page ${min} of ${total}`;
 
 export {  
           SIGN_IN_TITLE,
@@ -89,5 +91,7 @@ export {
           SCIENCES_LABEL,
           MYSTERY_LABEL,
           CRIME_LABEL,
-          ROMANCE_LABEL
+          ROMANCE_LABEL,
+          PAGINATOR_ITEMS_PAGE,
+          PAGINATOR_PAGE_NUMBER
        };

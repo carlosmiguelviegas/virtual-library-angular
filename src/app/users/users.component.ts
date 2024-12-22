@@ -23,6 +23,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   private unsubscribeSubs!: UnsubscribeSubscriptions;
   users!: any;
+  totalElements!: number;
   title = USERS_PAGE_TITLE;
   emptyListMessage = USERS_PAGE_EMPTY_LIST_MESSAGE;
 
@@ -37,7 +38,10 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   onGetAllActiveUsers = () => {
     this.unsubscribeSubs.add = this.usersService.getUsers().subscribe(
-      users => this.users = users
+      (users: any) => {
+        this.users = users['usersList'];
+        this.totalElements = users['total'];
+      }
     );
   };
 
