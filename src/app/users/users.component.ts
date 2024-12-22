@@ -7,11 +7,12 @@ import { ERROR_MESSAGE_TITLE, SUCCESS_MESSAGE_TITLE, USERS_PAGE_EMPTY_LIST_MESSA
 import { User } from '../models/User.model';
 import { NotificationService } from '../services/notification.service';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
+import { PaginatorComponent } from '../shared-components/layout/paginator/paginator.component';
 
 @Component({
   selector: 'users',
   standalone: true,
-  imports: [ CommonModule, UserCardComponent ],
+  imports: [ CommonModule, UserCardComponent, PaginatorComponent ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -29,6 +30,10 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.unsubscribeSubs = new UnsubscribeSubscriptions();
     this.onGetAllActiveUsers();
   }
+
+  onGetAllActiveUser = (event: any) => {
+    console.log('Pagination: ',event);
+  };
 
   onGetAllActiveUsers = () => {
     this.unsubscribeSubs.add = this.usersService.getUsers().subscribe(

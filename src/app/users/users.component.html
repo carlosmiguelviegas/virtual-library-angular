@@ -10,4 +10,5 @@
   } @else {
     <p class="message">{{ emptyListMessage }}</p>
   }
+  <paginator (pageEvent)="onGetAllActiveUser($event)"></paginator>
 </section>
