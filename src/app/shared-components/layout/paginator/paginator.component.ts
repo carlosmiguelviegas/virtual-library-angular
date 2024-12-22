@@ -16,26 +16,28 @@ export class PaginatorComponent implements OnInit {
   @Input() totalElements!: number;
   @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
   event!: PageEvent;
-  currentPageIndex = 0;
+  currentPageIndex = 1;
   currentPageSize = 4;
   ITEMS_PAGE_LABEL = PAGINATOR_ITEMS_PAGE;
   PAGE_NUMBER_LABEL!: string;
 
   ngOnInit(): void {
     this.event = new PageEvent(this.currentPageIndex, this.currentPageSize);
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.pageEvent.emit(this.event);
   }
 
   nextPage = () => {
     this.event = { ...this.event,
                     pageIndex: this.event['pageIndex'] + 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'] + 1, Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
     this.pageEvent.emit(this.event);
   };
 
   previousPage = () => {
     this.event = { ...this.event,
                    pageIndex: this.event['pageIndex'] - 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'] + 1, Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
     this.pageEvent.emit(this.event);
   };
 

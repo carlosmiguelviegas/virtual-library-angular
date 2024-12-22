@@ -29,15 +29,11 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.unsubscribeSubs = new UnsubscribeSubscriptions();
-    this.onGetAllActiveUsers();
   }
 
-  onGetAllActiveUser = (event: any) => {
-    console.log('Pagination: ',event);
-  };
-
-  onGetAllActiveUsers = () => {
-    this.unsubscribeSubs.add = this.usersService.getUsers().subscribe(
+  onGetAllActiveUsers = (event: any) => {
+    const { pageIndex, pageSize } = event; console.log(pageIndex, pageSize);
+    this.unsubscribeSubs.add = this.usersService.getUsers(pageIndex, pageSize).subscribe(
       (users: any) => {
         this.users = users['usersList'];
         this.totalElements = users['total'];

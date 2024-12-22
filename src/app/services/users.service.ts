@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { User } from '../models/User.model';
 import { catchError, Observable } from 'rxjs';
@@ -15,8 +15,9 @@ export class UsersService {
   
   constructor(private http: HttpClient) {}
 
-  getUsers = () => {
-    return this.http.get<Observable<User[]>>(this.GET_USERS_URL).pipe(
+  getUsers = (pageIndex: number, pageSize: number) => {
+    const options = { params: new HttpParams().append('page', pageIndex).append('limit', pageSize) };
+    return this.http.get<Observable<User[]>>(this.GET_USERS_URL, options).pipe(
       catchError(err => err.error)
     );
   };
