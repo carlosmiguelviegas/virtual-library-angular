@@ -3,13 +3,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PageEvent } from './page-event.model';
 
 @Component({
-  selector: 'pagination',
+  selector: 'paginator',
   standalone: true,
   imports: [],
-  templateUrl: './pagination.component.html',
-  styleUrl: './pagination.component.css'
+  templateUrl: './paginator.component.html',
+  styleUrl: './paginator.component.css'
 })
-export class PaginationComponent implements OnInit {
+export class PaginatorComponent implements OnInit {
 
   @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
 
