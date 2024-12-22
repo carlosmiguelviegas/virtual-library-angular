@@ -23,13 +23,14 @@ export class PaginatorComponent implements OnInit {
 
   nextPage = () => {
     this.event = { ...this.event,
-                    pageIndex: this.event['pageIndex'] + 1
-                 };
+                    pageIndex: this.event['pageIndex'] + 1 };
     this.pageEvent.emit(this.event);
   };
 
   previousPage = () => {
-    // it was intentional
+    this.event = { ...this.event,
+                   pageIndex: this.event['pageIndex'] - 1 };
+    this.pageEvent.emit(this.event);
   };
 
 }
