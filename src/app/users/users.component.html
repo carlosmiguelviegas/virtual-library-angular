@@ -11,3 +11,4 @@
     <p class="message">{{ emptyListMessage }}</p>
   }
 </section>
+<paginator class="paginator" [totalElements]="totalElements" (pageEvent)="onGetAllActiveUsers($event)"></paginator>

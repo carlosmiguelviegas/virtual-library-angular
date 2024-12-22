@@ -7,11 +7,12 @@ import { ERROR_MESSAGE_TITLE, SUCCESS_MESSAGE_TITLE, USERS_PAGE_EMPTY_LIST_MESSA
 import { User } from '../models/User.model';
 import { NotificationService } from '../services/notification.service';
 import { UnsubscribeSubscriptions } from '../utils/unsubscribe-subscriptions';
+import { PaginatorComponent } from '../shared-components/layout/paginator/paginator.component';
 
 @Component({
   selector: 'users',
   standalone: true,
-  imports: [ CommonModule, UserCardComponent ],
+  imports: [ CommonModule, UserCardComponent, PaginatorComponent ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -22,17 +23,21 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   private unsubscribeSubs!: UnsubscribeSubscriptions;
   users!: any;
+  totalElements!: number;
   title = USERS_PAGE_TITLE;
   emptyListMessage = USERS_PAGE_EMPTY_LIST_MESSAGE;
 
   ngOnInit(): void {
     this.unsubscribeSubs = new UnsubscribeSubscriptions();
-    this.onGetAllActiveUsers();
   }
 
-  onGetAllActiveUsers = () => {
-    this.unsubscribeSubs.add = this.usersService.getUsers().subscribe(
-      users => this.users = users
+  onGetAllActiveUsers = (event: any) => {
+    const { pageIndex, pageSize } = event;
+    this.unsubscribeSubs.add = this.usersService.getUsers(pageIndex, pageSize).subscribe(
+      (users: any) => {
+        this.users = users['usersList'];
+        this.totalElements = users['total'];
+      }
     );
   };
 
