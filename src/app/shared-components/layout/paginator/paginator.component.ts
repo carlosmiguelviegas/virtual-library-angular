@@ -33,4 +33,10 @@ export class PaginatorComponent implements OnInit {
     this.pageEvent.emit(this.event);
   };
 
+  changePageSize = (event: any) => {
+    this.event = { ...this.event,
+                    pageSize: event };
+    this.pageEvent.emit(this.event);
+  };
+
 }
