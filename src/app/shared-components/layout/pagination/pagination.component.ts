@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { PageEvent } from './page-event.model';
 
 @Component({
   selector: 'pagination',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './pagination.component.css'
 })
 export class PaginationComponent implements OnInit {
+
+  @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
 
   ngOnInit(): void {
     // it was intentional
