@@ -1,1 +1,10 @@
-<!-- it was intentional -->
+<section class="dfd">
+  <label>Items per page</label>
+  <select (change)="changePageSize($event)">
+    <option style="background-color: blanchedalmond" [value]="5">5</option>
+    <option style="background-color: blanchedalmond" [value]="10">10</option>
+  </select>
+  <label>Items per page:</label>
+  <mat-icon fontIcon="chevron_left" (click)="nextPage()"></mat-icon>
+  <mat-icon fontIcon="chevron_rigth" (click)="previousPage()"></mat-icon>
+</section>

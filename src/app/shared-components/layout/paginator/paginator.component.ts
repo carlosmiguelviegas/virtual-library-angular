@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { PageEvent } from './page-event.model';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'paginator',
   standalone: true,
-  imports: [],
+  imports: [ MatIcon ],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
