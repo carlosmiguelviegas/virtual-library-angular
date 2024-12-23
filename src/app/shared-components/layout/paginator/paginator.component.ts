@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PageEvent } from './page-event.model';
@@ -13,7 +13,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent implements OnInit, AfterContentChecked {
 
   @Input() totalElements!: number;
   @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
@@ -27,8 +27,11 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.event = new PageEvent(this.currentPageIndex, this.currentPageSize);
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
     this.pageEvent.emit(this.event);
+  }
+
+  ngAfterContentChecked(): void {
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
   }
 
   nextPage = () => {
