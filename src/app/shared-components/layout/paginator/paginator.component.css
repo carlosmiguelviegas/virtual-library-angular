@@ -4,6 +4,7 @@
   justify-content: flex-end;
   gap: 12px;
   padding-right: 2px;
+  padding-bottom: 38px;
 }
 
 .items-page, .page-number {

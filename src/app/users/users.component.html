@@ -3,7 +3,7 @@
   <hr class="divider">
   @if (users?.length) {
     <section class="users-container">
-      @for (user of users; track user) {
+      @for (user of users; track user['_id']) {
         <user-card [user]="user" (emitUserId)="onDisableUser($event)"></user-card>
       }
     </section>
