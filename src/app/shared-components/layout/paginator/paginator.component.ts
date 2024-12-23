@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { PageEvent } from './page-event.model';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -8,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'paginator',
   standalone: true,
-  imports: [ MatIconModule, MatIcon, MatTooltipModule ],
+  imports: [ CommonModule, MatIconModule, MatIcon, MatTooltipModule  ],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })

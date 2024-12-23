@@ -35,3 +35,12 @@
   right: 7px;
   cursor: pointer;
 }
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.disabled:active {
+  pointer-events: none;
+}
