@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { PageEvent } from './page-event.model';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -8,17 +9,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'paginator',
   standalone: true,
-  imports: [ MatIconModule, MatIcon, MatTooltipModule ],
+  imports: [ CommonModule, MatIconModule, MatIcon, MatTooltipModule  ],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent implements OnInit, AfterContentChecked {
 
   @Input() totalElements!: number;
   @Output() pageEvent: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
   event!: PageEvent;
   currentPageIndex = 1;
   currentPageSize = 4;
+  totalNumberPages!: number;
   ITEMS_PAGE_LABEL = PAGINATOR_ITEMS_PAGE;
   PAGE_NUMBER_LABEL!: string;
   nextPageTooltip = PAGINATOR_NEXT_PAGE;
@@ -26,21 +28,25 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.event = new PageEvent(this.currentPageIndex, this.currentPageSize);
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
     this.pageEvent.emit(this.event);
+  }
+
+  ngAfterContentChecked(): void {
+    this.totalNumberPages = Math.ceil(this.totalElements / this.event['pageSize']);
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
   }
 
   nextPage = () => {
     this.event = { ...this.event,
                     pageIndex: this.event['pageIndex'] + 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
     this.pageEvent.emit(this.event);
   };
 
   previousPage = () => {
     this.event = { ...this.event,
                    pageIndex: this.event['pageIndex'] - 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
     this.pageEvent.emit(this.event);
   };
 

@@ -7,7 +7,11 @@
   </select>
   <label class="page-number">{{ PAGE_NUMBER_LABEL }}</label>
   <section class="buttons-section">
-    <mat-icon class="icon" [matTooltip]="previousPageTooltip" fontIcon="chevron_left" (click)="previousPage()"></mat-icon>
-    <mat-icon class="icon" [matTooltip]="nextPageTooltip" fontIcon="chevron_right" (click)="nextPage()"></mat-icon>
+    <mat-icon class="icon" [ngClass]="{ 'disabled': event['pageIndex'] === 1 ? true : false }" [matTooltip]="previousPageTooltip"
+              fontIcon="chevron_left" (click)="previousPage()">
+    </mat-icon>
+    <mat-icon class="icon" [ngClass]="{ 'disabled': event['pageIndex'] === totalNumberPages ? true : false }" [matTooltip]="nextPageTooltip"
+              fontIcon="chevron_right" (click)="nextPage()">
+    </mat-icon>
   </section>
 </section>
