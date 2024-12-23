@@ -20,6 +20,7 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
   event!: PageEvent;
   currentPageIndex = 1;
   currentPageSize = 4;
+  totalNumberPages!: number;
   ITEMS_PAGE_LABEL = PAGINATOR_ITEMS_PAGE;
   PAGE_NUMBER_LABEL!: string;
   nextPageTooltip = PAGINATOR_NEXT_PAGE;
@@ -31,20 +32,21 @@ export class PaginatorComponent implements OnInit, AfterContentChecked {
   }
 
   ngAfterContentChecked(): void {
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.totalNumberPages = Math.ceil(this.totalElements / this.event['pageSize']);
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
   }
 
   nextPage = () => {
     this.event = { ...this.event,
                     pageIndex: this.event['pageIndex'] + 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
     this.pageEvent.emit(this.event);
   };
 
   previousPage = () => {
     this.event = { ...this.event,
                    pageIndex: this.event['pageIndex'] - 1 };
-    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], Math.ceil(this.totalElements / this.event['pageSize']));
+    this.PAGE_NUMBER_LABEL = PAGINATOR_PAGE_NUMBER(this.event['pageIndex'], this.totalNumberPages);
     this.pageEvent.emit(this.event);
   };
 
