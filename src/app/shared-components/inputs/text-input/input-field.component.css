@@ -13,7 +13,9 @@
 
 .input {
   line-height: 22px;
+  color: brown;
   border-radius: 5px;
+  border-color: brown;
   margin-bottom: 2px;
   background-color: transparent;
 }
